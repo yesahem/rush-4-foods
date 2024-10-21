@@ -1,10 +1,11 @@
 import Image from "next/image";
-import { SpotlightPreview } from "./components/Spotlight-compo";
+import { SpotlightPreview } from "./components/SpotlightBackground";
+import { BackgroundBeamsDemo } from "./components/BeamBackground";
 
 export default function Home() {
   return (
     <div>
-      <SpotlightPreview />
+      <BackgroundBeamsDemo />
       </div>
   );
 }

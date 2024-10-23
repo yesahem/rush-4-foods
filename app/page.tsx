@@ -1,10 +1,10 @@
-
-import { SpotlightPreview } from "./components/Spotlight-compo";
+import { BackgroundBeamsDemo } from "./components/BeamBackground";
 
 export default function Home() {
   return (
     <div>
-      <SpotlightPreview />
+      <BackgroundBeamsDemo />
+      
       </div>
   );
 }

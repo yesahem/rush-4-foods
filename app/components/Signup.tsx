@@ -15,9 +15,9 @@ export function SignupFormDemo() {
   };
   return (
     <div className="mt-52 max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
-      <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
-        Welcome to Aceternity
-      </h2>
+      <h3 className="relative z-10 text-sm md:text-2xl  bg-clip-text text-transparent bg-gradient-to-b from-yellow-400 to-red-600  text-center font-sans font-bold">
+          Welcome to Food-Rush
+        </h3>
       <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
         Login to aceternity if you can because we don&apos;t have a login flow
         yet

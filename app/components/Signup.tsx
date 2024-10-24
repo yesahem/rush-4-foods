@@ -1,54 +1,98 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { cn } from "../lib/utils";
-import {
-  IconBrandGithub,
-  IconBrandGoogle,
-} from "@tabler/icons-react";
+import { IconBrandGithub, IconBrandGoogle } from "@tabler/icons-react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { data } from "framer-motion/client";
+
+type Inputs = {
+  firstname: string;
+  lastname: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+};
 
 export function SignupFormDemo() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("Form submitted");
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<Inputs>();
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    console.log(data);
+    // console.log(data?.firstname)
+    // console.log(data?.lastname)
+    // console.log(data?.email)
+    // console.log(data?.password)
   };
+
+  // console.log(watch("example")); // watch input value by passing the name of
+
   return (
-    <div className="mt-52 max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
+    <div className=" max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
       <h3 className="relative z-10 text-sm md:text-2xl  bg-clip-text text-transparent bg-gradient-to-b from-yellow-400 to-red-600  text-center font-sans font-bold">
-          Welcome to Food-Rush
-        </h3>
+        Welcome to Food-Rush
+      </h3>
       <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300">
         Login to aceternity if you can because we don&apos;t have a login flow
         yet
       </p>
 
-      <form className="my-8" onSubmit={handleSubmit}>
+      <form className="my-8" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 mb-4">
           <LabelInputContainer>
             <Label htmlFor="firstname">First name</Label>
-            <Input id="firstname" placeholder="Tyler" type="text" />
+            <Input
+              id="firstname"
+              placeholder="Tyler"
+              type="text"
+              {...register("firstname", { required: true })}
+            />
+            {errors.firstname && <span>This field is required</span>}
           </LabelInputContainer>
           <LabelInputContainer>
             <Label htmlFor="lastname">Last name</Label>
-            <Input id="lastname" placeholder="Durden" type="text" />
+            <Input
+              id="lastname"
+              placeholder="Durden"
+              type="text"
+              {...register("lastname")}
+            />
           </LabelInputContainer>
         </div>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Email Address</Label>
-          <Input id="email" placeholder="projectmayhem@fc.com" type="email" />
+          <Input
+            id="email"
+            placeholder="projectmayhem@fc.com"
+            type="email"
+            {...register("email", { required: true })}
+          />
+          {errors.email && <span>This field is required</span>}
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="password">Password</Label>
-          <Input id="password" placeholder="••••••••" type="password" />
+          <Input
+            id="password"
+            placeholder="••••••••"
+            type="password"
+            {...register("password", { required: true })}
+          />
+          {errors.password && <span>This field is required</span>}
         </LabelInputContainer>
         <LabelInputContainer className="mb-8">
-          <Label htmlFor="twitterpassword">Your twitter password</Label>
+          <Label htmlFor="confirmPassword">Confirm your Password</Label>
           <Input
-            id="twitterpassword"
+            id="confirmPassword"
             placeholder="••••••••"
-            type="twitterpassword"
+            type="password"
+            {...register("confirmPassword", { required: true })}
           />
+          {errors.confirmPassword && <span>This field is required</span>}
         </LabelInputContainer>
 
         <button
@@ -82,7 +126,6 @@ export function SignupFormDemo() {
             </span>
             <BottomGradient />
           </button>
-          
         </div>
       </form>
     </div>

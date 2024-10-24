@@ -3,6 +3,7 @@ import React from "react";
 import { BackgroundBeams } from "./ui/background-beams";
 import { AnimatedBeamDemo } from "./ui/shadcn/BiDirBeam";
 import { NavbarDemo } from "./Navbar";
+import { SigninFormDemo } from "./Signin";
 
 
 export function BackgroundBeamsDemo() {
@@ -27,6 +28,7 @@ export function BackgroundBeamsDemo() {
         </p>
         <BackgroundBeams />
         <NavbarDemo />
+
 
     </div>
   );

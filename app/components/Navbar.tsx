@@ -40,13 +40,13 @@ function Navbar({ className }: { className?: string }) {
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Order Now">
-        <button className="px-6 mx-2 bg-transparent border border-white dark:border-white dark:text-white text-white rounded-lg  transform hover:-translate-y-1 transition duration-400">
-         SignUp
-        </button>
-
-        <button className="px-6  bg-transparent border border-white dark:border-white dark:text-white text-white rounded-lg  transform hover:-translate-y-1 transition duration-400">
+        <Link href="/api/signup"><button className="px-6  bg-transparent border border-white dark:border-white dark:text-white text-white rounded-lg  transform hover:-translate-y-1 transition duration-400" >
+          Signup
+        </button></Link>
+        <Link href="/api/signin"><button className="px-6  bg-transparent border border-white dark:border-white dark:text-white text-white rounded-lg  transform hover:-translate-y-1 transition duration-400" >
           SignIn
-        </button>
+        </button></Link>
+        
         </MenuItem>
         
         

@@ -69,7 +69,7 @@ export function AnimatedBeamDemo() {
 const Icons = {
   openai: () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" id="food" viewBox="0 0 24 24">
-      <g stroke-linecap="round" stroke-linejoin="round">
+      <g strokeLinecap="round" strokeLinejoin="round">
         <path
           fill="none"
           stroke="#faa41a"
